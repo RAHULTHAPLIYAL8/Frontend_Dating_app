@@ -15,10 +15,10 @@ const Sign = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.prevenDefault()
+  const handleSubmit=  async (e) => {
+    e.preventDefault()
     try{
-        const response= await fetch('',{
+        const response= await fetch('https://dating-backend-beta.vercel.app/moderator/signin',{
             method:'Post',
             headers:{
                 'Content-Type':'application/json'
@@ -26,13 +26,18 @@ const Sign = () => {
             body: JSON.stringify(formValues)
         })
         const data= await response.json();
-        if(data.status==="ok")
-       navigate("/admin")
+        console.log(data)
+        navigate('/admin')
+       if(data.status==="ok")
+       {
+        navigate("/admin")
+       }
+     
 
     }
-    catch
+    catch(er)
     {
-
+            console.log(err)
     }
     
 
@@ -82,8 +87,8 @@ const Sign = () => {
                     </button>
                   </div>
                   <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-                  <NavLink to="/signup" style={{ textDecoration: "none" }}>Signup</NavLink>
-                    <NavLink to="/forgot" style={{ textDecoration: "none" }}>Forgot Password?</NavLink>
+                  <NavLink to="/admin/signup" style={{ textDecoration: "none" }}>Signup</NavLink>
+                    {/* <NavLink to="/forgot" style={{ textDecoration: "none" }}>Forgot Password?</NavLink> */}
                   </div>
                 </form>
               </div>

@@ -9,17 +9,19 @@ import Login from "./Components/Login.jsx"
 import Forgot from "./Components/Forgot.jsx"
 import RemoveDetails from './Components/Remove_Details.jsx';
 import Add_Details from './Components/Add_Admin_Details.jsx';
-import AdminForm from './Components/Admin_Form.jsx';
-
+import AdminForm from './Components/AdminSignin.jsx';
+import ApprovedUser from "./Components/ApprovedUser"
 import './App.css';
 import Admin from './Components/Admin.jsx';
+import AdminSignup from './Components/AdminSignup.jsx'
 function App() {
   return (
+    <>
     <BrowserRouter>
       <Routes>
         <Route path="/signin" element={<Signin />} />
+       <Route path="/signup" element={<Signup/>} />
         {/* <Route path="/signup" element={<Signup/>} /> */}
-        <Route path="/signup" element={<Signup/>} />
         <Route path="/match" element={<Match/>} />
         <Route path="/list" element={<List/>} />
         <Route path='/forgot' element={<Forgot/>}/>
@@ -30,11 +32,12 @@ function App() {
         <Route path="/admin/removedetails" element={<RemoveDetails/>}/>
         <Route path="/admin/adddetails" element={<Add_Details/>}/>
         <Route path="/admin/login" element={<AdminForm/>}/>
-    
+        <Route path="/admin/approve" element={<ApprovedUser/>}/>
+        <Route path="/admin/signup" element={<AdminSignup/>}/>
         
-
       </Routes>
     </BrowserRouter>
+    </>
     
   );
 }

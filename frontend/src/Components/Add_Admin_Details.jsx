@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import AdminNavBar from './AdminNavBar';
+import NavBar from './NavBar';
+
 
 const Add_Details = () => {
   const [button, setButton] = useState(false);
@@ -8,7 +11,7 @@ const Add_Details = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch("http://localhost:3000/moderator/get-questions");
+        const response = await fetch("https://dating-backend-beta.vercel.app/moderator/get-questions");
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -33,7 +36,7 @@ const Add_Details = () => {
   const addNewQuestion = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/moderator/create-question', {
+      const response = await fetch('https://dating-backend-beta.vercel.app/moderator/create-question', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,6 +61,7 @@ const Add_Details = () => {
     cursor: "pointer",
     alignItems: "center",
     boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
+    background:"white"
   };
   const truestyle = {
     margin: "1vh",
@@ -69,46 +73,33 @@ const Add_Details = () => {
     cursor: "pointer",
     alignItems: "center",
     boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
+    background:"white"
   };
   const addButtonDetail = () => {
     setButton(!button);
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">Rahul</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">All Users</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Accepted Users</a>
-              </li>
-            </ul>
-            <NavLink to="/admin/removedetails" style={{ textDecoration: "none" }}>
-              <button className="btn btn-outline-danger mr-3" type="submit" style={{ marginRight: "1vh" }}>
-                + Remove Details
-              </button>
-            </NavLink>
-            <NavLink to="/admin/adddetails" style={{ textDecoration: "none" }}>
-              <button className="btn btn-outline-danger mr-3" type="submit" style={{ marginRight: "1vh" }}>
-                + Add Details
-              </button>
-            </NavLink>
-          </div>
-        </div>
-      </nav>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+      
+      <AdminNavBar/>
+      <div style={{
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundAttachment: "fixed", // Fixes the background image
+  minHeight: "100vh", // Ensures the container covers the viewport
+  width: "98.5vw", // Ensures the container covers the full width of the viewport
+}}>
+
         {value.length === 0 ? "" : value.map((field, index) => (
-          <div key={index} style={{ margin: "1vh", padding: "1vh", fontWeight: "bold", width: "80vw", display: "flex", justifyContent: "space-between", alignItems: "center", boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px" }}>
+          <div key={index} style={{ margin: "1vh", padding: "2vh", fontWeight: "bold", width: "80vw", display: "flex", justifyContent: "space-between", alignItems: "center", boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px" }}>
             {field.question}
             <div>
-              <button type="button" className="btn btn-danger">Edit</button>
+              
             </div>
           </div>
         ))}

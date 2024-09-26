@@ -20,7 +20,30 @@ const Sign = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formValues);
 
+    try {
+      const response = await fetch('https://dating-backend-beta.vercel.app/user/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formValues)
+      });
+      const data = await response.json();
+
+      if (data.status === "ok") {
+        navigate(`/dashboard/${data.value.email}/${data.value.status}`);
+      } else if (data.status === "error") {
+        setStatus("Password is incorrect");
+      } else if (data.status === "email") {
+        setStatus("Email already exists");
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      setStatus("An error occurred while submitting the form.");
+    }
   };
 
   return (
@@ -36,7 +59,7 @@ const Sign = () => {
                 <h3 className="mb-4 text-center" style={{color:"white"}}>Sign In</h3>
                 <form onSubmit={handleSubmit}>
                   <div className="form-group mb-2">
-                    <label htmlFor="typeEmailX-2" className="form-label" ><h2>Email</h2></label>
+                    <label htmlFor="typeEmailX-2" className="form-label" ><h5>Email</h5></label>
                     <input
                       type="email"
                       id="typeEmailX-2"
@@ -49,7 +72,7 @@ const Sign = () => {
                     />
                   </div>
                   <div className="form-group mb-2">
-                    <label htmlFor="typePasswordX-2" className="form-label">Password</label>
+                    <label htmlFor="typePasswordX-2" className="form-label"> <h5>Password</h5></label>
                     <input
                       type="password"
                       id="typePasswordX-2"

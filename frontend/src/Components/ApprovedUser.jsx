@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import AdminNavBar from './AdminNavBar';
 
 const Admin = () => {
@@ -50,9 +51,9 @@ const Admin = () => {
   return (
     <>
      <AdminNavBar/>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" ,margin:"20px"}}>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column",margin:"20px" }}>
         {
-          detail.length === 0 ? " " : detail.filter(field => field.status === "pending").map((field, index) => (
+          detail.length === 0 ? " " : detail.filter(field => field.status === "approve").map((field, index) => (
             <div 
               key={index} 
               style={{
@@ -68,22 +69,15 @@ const Admin = () => {
                 boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px"
               }}
             >
-              <h5 style={{width:"20%"}}>{field.name} </h5><h5 style={{width:"20%"}}>{field.gender}</h5>
+                <h5 style={{width:"20%"}}>{field.name} </h5><h5 style={{width:"20%"}}>{field.gender}</h5>
               <div>
                 <button 
                   type="button" 
-                  className="btn btn-primary" 
+                  className="btn btn-success" 
                   style={{ marginRight: "10px" }} 
-                  onClick={() => { Acceptfunction(field._id) }}
+                
                 >
-                  Accept
-                </button>
-                <button 
-                  type="button" 
-                  className="btn btn-danger" 
-                  onClick={() => { Rejectfunction(field.email) }}
-                >
-                  Reject
+                  Approved
                 </button>
               </div>
             </div>
