@@ -11,6 +11,7 @@ import RemoveDetails from './Components/Remove_Details.jsx';
 import Add_Details from './Components/Add_Admin_Details.jsx';
 import AdminForm from './Components/AdminSignin.jsx';
 import ApprovedUser from "./Components/ApprovedUser"
+import UserData from './Components/UserData.jsx';
 import './App.css';
 import Admin from './Components/Admin.jsx';
 import AdminSignup from './Components/AdminSignup.jsx'
@@ -34,6 +35,8 @@ function App() {
         <Route path="/admin/login" element={<AdminForm/>}/>
         <Route path="/admin/approve" element={<ApprovedUser/>}/>
         <Route path="/admin/signup" element={<AdminSignup/>}/>
+        <Route path="/testing" element={<UserData/>}/>
+
         
       </Routes>
     </BrowserRouter>

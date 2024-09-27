@@ -5,6 +5,9 @@ export default class ApprovalPending extends Component {
     return (
       <div>
         <h1>Your Approval is Pending</h1>
+        {
+          alert("Your approval is pending")
+        }
       </div>
     )
   }

@@ -51,6 +51,7 @@ const Admin = () => {
   return (
     <>
      <AdminNavBar/>
+     <h1>Approved User</h1>
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column",margin:"20px" }}>
         {
           detail.length === 0 ? " " : detail.filter(field => field.status === "approve").map((field, index) => (

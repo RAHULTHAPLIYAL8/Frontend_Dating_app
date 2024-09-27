@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import addDetailPhoto from "../assets/space.jpg";
 
 
 const Form = () => {
@@ -50,18 +51,18 @@ const Form = () => {
   };
 
   return (
-    <section className="vh-100 d-flex justify-content-center align-items-center" style={{ height: "50vh", margin: 0, backgroundSize: 'cover',
+    <section className="vh-100 d-flex justify-content-center align-items-center" style={{ height: "50vh", margin: 0,backgroundImage:`url(${addDetailPhoto})`, backgroundSize: 'cover',
       backgroundPosition: 'center',}}>
       <div className="container d-flex justify-content-center align-items-center">
         <div className="col-12 col-md-8 col-lg-6 col-xl-5">
           <div className="card shadow-lg" style={{ borderRadius: "10px", padding: "15px", backgroundSize: 'cover',
-    backgroundPosition: 'center', }}>
+    backgroundPosition: 'center'}}>
             <div className="card-body p-5">
-              <h3 className="mb-2 text-center" style={{color:"white"}}>Sign Up</h3>
+              <h3 className="mb-2 text-center" >Admin Sign Up</h3>
               {status && <p className="text-danger text-center">{status}</p>} 
               <form onSubmit={handleSubmit}>
                 <div className="form-group mb-2">
-                  <label htmlFor="typeEmailX-2" className="form-label">Name</label>
+                  <label htmlFor="typeEmailX-2" className="form-label"><h6>Name</h6></label>
                   <input
                     type="text"
                     id="typeEm"
@@ -75,7 +76,7 @@ const Form = () => {
                   />
                 </div>
                 <div className="form-group mb-2">
-                  <label htmlFor="typeEmailX-2" className="form-label">Email</label>
+                  <label htmlFor="typeEmailX-2" className="form-label"><h6>Email</h6></label>
                   <input
                     type="email"
                     id="typeEmail"
@@ -89,7 +90,7 @@ const Form = () => {
                   />
                 </div>
                 <div className="form-group mb-2">
-                  <label htmlFor="typePasswordX-2" className="form-label">Password</label>
+                  <label htmlFor="typePasswordX-2" className="form-label"><h6>Password</h6></label>
                   <input
                     type="password"
                     id="typePassword"
@@ -103,12 +104,12 @@ const Form = () => {
                   />
                 </div>
                 <div className="d-grid gap-2">
-                <button className="btn btn-danger btn-block" type="submit" style={{ padding: "12px", fontSize: "20px"}}>
+                <button className="btn btn-primary btn-block" type="submit" style={{ padding: "12px", fontSize: "20px"}}>
   Sign up
 </button>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
-                  <p>Already have an account? <NavLink to="/signin" style={{ textDecoration: "none" }}>Sign in</NavLink></p>
+                  <p>Already have an account? <NavLink to="/admin/login" style={{ textDecoration: "none" }}>Sign in</NavLink></p>
                 </div>
               </form>
             </div>

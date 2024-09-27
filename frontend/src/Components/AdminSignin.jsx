@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import addDetailPhoto from "../assets/space.jpg";
 import { NavLink, useNavigate } from "react-router-dom";
 const Sign = () => {
   const [formValues, setFormValues] = useState({
@@ -45,7 +46,7 @@ const Sign = () => {
 
   return (
     <>
-      <section className="vh-100 d-flex justify-content-center align-items-center" style={{ height: "50vh", margin: 0,
+    <section className="vh-100 d-flex justify-content-center align-items-center" style={{ height: "50vh", margin: 0,backgroundImage:`url(${addDetailPhoto})`, backgroundSize: 'cover',
       backgroundPosition: 'center',}}>
 
         <div className="container d-flex justify-content-center align-items-center">
@@ -82,7 +83,7 @@ const Sign = () => {
                     />
                   </div>
                   <div className="d-grid gap-2">
-                    <button className="btn btn-danger btn-block" type="submit" style={{ padding: "12px", fontSize: "1rem" }}>
+                    <button className="btn btn-primary btn-block" type="submit" style={{ padding: "12px", fontSize: "1rem" }}>
                       Sign In
                     </button>
                   </div>

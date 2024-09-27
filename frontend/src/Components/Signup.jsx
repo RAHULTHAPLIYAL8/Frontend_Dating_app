@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import bgPhoto from '../assets/bgphoto.jpg';
 import bgFormPhoto from '../assets/bgformphoto.jpg';
-
-
 const Form = () => {
   const [formValues, setFormValues] = useState({
     name: "",

@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import ApprovalPending from './ApprovalPending';
-import List from './List';
 import NavBar from './NavBar';
 import { useParams } from 'react-router-dom';
 
 export default function Dashboard() {
-    const { email,status} = useParams();  
+    const { status } = useParams();  
     const [isApprovalClear, setIsApprovalClear] = useState(false);
+   
     useEffect(() => {
-        
-        if (status==="approve") {
+        if (status === "approve") {
             setIsApprovalClear(true);
+        } else {
+            setIsApprovalClear(false); // Reset state if status is not "approve"
         }
-    }, [email]); 
+    }, [status]); // Run effect when status changes
+    
     return (
         <div>
             <NavBar />
-            {isApprovalClear ? (
-                // <List email1={email}/>
-                <h1>The approval status is approve</h1>
-            ) : (
-                <ApprovalPending />
-            )}
+            {isApprovalClear ? <h1>The approval status is approve</h1> : <ApprovalPending />}
         </div>
     );
-}
+} 
