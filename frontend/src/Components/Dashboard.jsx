@@ -40,12 +40,12 @@ export default function Dashboard() {
             {status === "approve" ? (
                 <>
                     <NavBar />
-                    <h1>The approval status is approve</h1>
+                    <h1>We identified the perfect matches for you</h1>
                     <div className="card" style={{ width: '18rem', margin: '20px' }}>
             <img src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=" className="card-img-top"  />
             <div className="card-body">
                 <h5 style={{textAlign:"center"}} className="card-title">{state}</h5>
-                <p className="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quae.</p>
+                <p className="card-text"></p>
                 <div><button href="#"  style={{width:"100%"}}className="btn btn-danger">Connect</button></div>
             </div>
         </div>
