@@ -5,8 +5,17 @@ import { useParams } from 'react-router-dom';
 
 export default function Dashboard() {
     const [state, setState] = useState(null); // Initialize state
-
-    const { status } = useParams(); // Get status from URL parameters
+    let id="5"
+    const { status, email } = useParams(); // Get status from URL parameters
+    console.log(email)
+    if(email=="mianguyen123@gmail.com")
+    {
+        id="4"
+    }     
+    else if(email=="harveryspecter123@gmail.com")
+    {
+      id="5"
+    }
 
     useEffect(() => {
         const fetchData = async () => { // Define an async function
@@ -16,7 +25,7 @@ export default function Dashboard() {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({userId:"4"}),
+                    body: JSON.stringify({userId:id}),
                 });
 
                 if (!response.ok) {
